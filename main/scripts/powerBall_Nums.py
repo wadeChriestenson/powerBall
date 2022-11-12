@@ -46,19 +46,49 @@ print(f'{Median_Num_1:.0f}',
       f'{Median_Powerball:.0f}')
 print('Num_1 has a total of', len(Num_1), 'Draws')
 
-fig = px.scatter(x=Num_1, y=Date)
+fig1 = px.scatter(x=Num_1, y=Date)
+fig2 = px.scatter(x=Num_2, y=Date)
+fig3 = px.scatter(x=Num_3, y=Date)
+fig4 = px.scatter(x=Num_4, y=Date)
+fig5 = px.scatter(x=Num_5, y=Date)
+figPowerball = px.scatter(x=Powerball, y=Date)
 
 app.layout = html.Div(children=[
     html.H1(children='History of All Powerball Picks'),
 
     html.Div(children='''
-         All ''' + str(len(Num_1)) + ''' Picks for the 1st Number
-         The Median Number for Pick 1 is ''' + f'{Median_Num_1:.0f}' + '''
+         All ''' + str(len(Date)) + ''' Picks for the Powerball from 02/03/2010 to 11/09/2022
+         The Median Numbers for ''' + f'{Median_Num_1:.0f}' + ''' ''' 
+                      f'{Median_Num_2:.0f}' + ''' '''
+                      f'{Median_Num_3:.0f}' + ''' '''
+                      f'{Median_Num_4:.0f}' + ''' '''
+                      f'{Median_Num_5:.0f}' + ''' '''
+                      f'{Median_Powerball:.0f}' + '''
     '''),
 
     dcc.Graph(
-        id='example-graph',
-        figure=fig
+        id='Num_1',
+        figure=fig1
+    ),
+    dcc.Graph(
+        id='Num_2',
+        figure=fig2
+    ),
+    dcc.Graph(
+        id='Num_3',
+        figure=fig3
+    ),
+    dcc.Graph(
+        id='Num_4',
+        figure=fig4
+    ),
+    dcc.Graph(
+        id='Num_5',
+        figure=fig5
+    ),
+    dcc.Graph(
+        id='Powerball',
+        figure=figPowerball
     )
 ])
 
